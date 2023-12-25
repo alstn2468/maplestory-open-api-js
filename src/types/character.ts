@@ -56,6 +56,17 @@ export interface CharacterStat extends CharacterBase {
   remain_ap: number;
 }
 
+export interface HyperStat {
+  /** 스탯 종류 */
+  stat_type: string;
+  /** 스탯 투자 포인트 int64 */
+  stat_point: number;
+  /** 스탯 레벨 */
+  stat_level: number;
+  /** 스탯 상승량 */
+  stat_increase: string;
+}
+
 export interface CharacterHyperStat extends CharacterBase {
   /** 캐릭터 직업 */
   character_class: string;
@@ -64,44 +75,16 @@ export interface CharacterHyperStat extends CharacterBase {
   /** 사용 가능한 최대 하이퍼스탯 포인트 int64 */
   use_available_hyper_stat: number;
   /** 프리셋 1번 하이퍼 스탯 정보 */
-  hyper_stat_preset_1: Array<{
-    /** 스탯 종류 */
-    stat_type: string;
-    /** 스탯 투자 포인트 int64 */
-    stat_point: number;
-    /** 스탯 레벨 */
-    stat_level: number;
-    /** 스탯 상승량 */
-    stat_increase: string;
-  }>;
+  hyper_stat_preset_1: Array<HyperStat>;
   /** 프리셋 1번 하이퍼 스탯 잔여 포인트 int64 */
   hyper_stat_preset_1_remain_point: number;
-
   /** 프리셋 2번 하이퍼 스탯 정보 */
-  hyper_stat_preset_2: Array<{
-    /** 스탯 종류 */
-    stat_type: string;
-    /** 스탯 투자 포인트 int64 */
-    stat_point: number;
-    /** 스탯 레벨 */
-    stat_level: number;
-    /** 스탯 상승량 */
-    stat_increase: string;
-  }>;
+  hyper_stat_preset_2: Array<HyperStat>;
   /** 프리셋 2번 하이퍼 스탯 잔여 포인트 */
   hyper_stat_preset_2_remain_point: number;
 
   /** 프리셋 3번 하이퍼 스탯 정보 */
-  hyper_stat_preset_3: Array<{
-    /** 스탯 종류 */
-    stat_type: string;
-    /** 스탯 투자 포인트 int64 */
-    stat_point: number;
-    /** 스탯 레벨 */
-    stat_level: number;
-    /** 스탯 상승량 */
-    stat_increase: string;
-  }>;
+  hyper_stat_preset_3: Array<HyperStat>;
   /** 프리셋 3번 하이퍼 스탯 잔여 포인트 */
   hyper_stat_preset_3_remain_point: number;
 }
@@ -137,6 +120,45 @@ export interface CharacterAbility extends CharacterBase {
   remain_fame: number;
 }
 
+export interface ItemBaseOption {
+  /** STR */
+  str: string;
+  /** DEX */
+  dex: string;
+  /** INT */
+  int: string;
+  /** LUK */
+  luk: string;
+  /** 최대 HP */
+  max_hp: string;
+  /** 최대 MP */
+  max_mp: string;
+  /** 공격력 */
+  attack_power: string;
+  /** 마력 */
+  magic_power: string;
+  /** 방어력 */
+  armor: string;
+  /** 이동속도 */
+  speed: string;
+  /** 점프력 */
+  jump: string;
+  /** 보스 공격 시 데미지 증가(%) */
+  boss_damage: string;
+  /** 몬스터 방어율 무시(%) */
+  ignore_monster_armor: string;
+  /** 올스탯(%) */
+  all_stat: string;
+  /** 데미지(%) */
+  damage: string;
+  /** 착용 레벨 감소 int64 */
+  equipment_level_decrease: number;
+  /** 최대 HP(%) */
+  max_hp_rate: string;
+  /** 최대 MP(%) */
+  max_mp_rate: string;
+}
+
 export interface ItemEquipment {
   /** 장비 부위 명 */
   item_equipment_part: string;
@@ -155,83 +177,9 @@ export interface ItemEquipment {
   /** 전용 성별 */
   gender: string;
   /** 장비 최종 옵션 정보 */
-  item_total_option: {
-    /** STR */
-    str: string;
-    /** DEX */
-    dex: string;
-    /** INT */
-    int: string;
-    /** LUK */
-    luk: string;
-    /** 최대 HP */
-    max_hp: string;
-    /** 최대 MP */
-    max_mp: string;
-    /** 공격력 */
-    attack_power: string;
-    /** 마력 */
-    magic_power: string;
-    /** 방어력 */
-    armor: string;
-    /** 이동속도 */
-    speed: string;
-    /** 점프력 */
-    jump: string;
-    /** 보스 공격 시 데미지 증가(%) */
-    boss_damage: string;
-    /** 몬스터 방어율 무시(%) */
-    ignore_monster_armor: string;
-    /** 올스탯(%) */
-    all_stat: string;
-    /** 데미지(%) */
-    damage: string;
-    /** 착용 레벨 감소 int64 */
-    equipment_level_decrease: number;
-    /** 최대 HP(%) */
-    max_hp_rate: string;
-    /** 최대 MP(%) */
-    max_mp_rate: string;
-  };
+  item_total_option: ItemBaseOption;
   /** 장비 기본 옵션 정보 */
-  item_base_option: {
-    /** STR */
-    str: string;
-    /** DEX */
-    dex: string;
-    /** INT */
-    int: string;
-    /** LUK */
-    luk: string;
-    /** 최대 HP */
-    max_hp: string;
-    /** 최대 MP */
-    max_mp: string;
-    /** 공격력 */
-    attack_power: string;
-    /** 마력 */
-    magic_power: string;
-    /** 방어력 */
-    armor: string;
-    /** 이동속도 */
-    speed: string;
-    /** 점프력 */
-    jump: string;
-    /** 보스 공격 시 데미지 증가(%) */
-    boss_damage: string;
-    /** 몬스터 방어율 무시(%) */
-    ignore_monster_armor: string;
-    /** 올스탯(%) */
-    all_stat: string;
-    /** 데미지(%) */
-    damage: string;
-    /** 착용 레벨 감소 int64 */
-    equipment_level_decrease: number;
-    /** 최대 HP(%) */
-    max_hp_rate: string;
-    /** 최대 MP(%) */
-    max_mp_rate: string;
-  };
+  item_base_option: ItemBaseOption;
   /** 잠재능력 등급 */
   potential_option_grade: string;
   /** 에디셔널 잠재능력 등급 */
@@ -251,57 +199,19 @@ export interface ItemEquipment {
   /** 착용 레벨 증가 int64 */
   equipment_level_increase: number;
   /** 장비 특별 옵션 정보 */
-  item_exceptional_option: {
-    /** STR */
-    str: string;
-    /** DEX */
-    dex: string;
-    /** INT */
-    int: string;
-    /** LUK */
-    luk: string;
-    /** 최대 HP */
-    max_hp: string;
-    /** 최대 MP */
-    max_mp: string;
-    /** 공격력 */
-    attack_power: string;
-    /** 마력 */
-    magic_power: string;
-  };
+  item_exceptional_option: Pick<
+    ItemBaseOption,
+    | 'str'
+    | 'dex'
+    | 'int'
+    | 'luk'
+    | 'max_hp'
+    | 'max_mp'
+    | 'attack_power'
+    | 'magic_power'
+  >;
   /** 장비 추가 옵션 */
-  item_add_option: {
-    /** STR */
-    str: string;
-    /** DEX */
-    dex: string;
-    /** INT */
-    int: string;
-    /** LUK */
-    luk: string;
-    /** 최대 HP */
-    max_hp: string;
-    /** 최대 MP */
-    max_mp: string;
-    /** 공격력 */
-    attack_power: string;
-    /** 마력 */
-    magic_power: string;
-    /** 방어력 */
-    armor: string;
-    /** 이동속도 */
-    speed: string;
-    /** 점프력 */
-    jump: string;
-    /** 보스 공격 시 데미지 증가(%) */
-    boss_damage: string;
-    /** 올스탯(%) */
-    all_stat: string;
-    /** 데미지(%) */
-    damage: string;
-    /** 착용 레벨 감소 int64 */
-    equipment_level_decrease: number;
-  };
+  item_add_option: Omit<ItemBaseOption, 'max_hp_rate' | 'max_mp_rate'>;
   /** 성장 경험치 int64 */
   growth_exp: number;
   /** 성장 레벨 int64 */
@@ -321,59 +231,31 @@ export interface ItemEquipment {
   /** 소울 옵션 */
   soul_option: string;
   /** 장비 기타 옵션 정보 */
-  item_etc_option: {
-    /** STR */
-    str: string;
-    /** DEX */
-    dex: string;
-    /** INT */
-    int: string;
-    /** LUK */
-    luk: string;
-    /** 최대 HP */
-    max_hp: string;
-    /** 최대 MP */
-    max_mp: string;
-    /** 공격력 */
-    attack_power: string;
-    /** 마력 */
-    magic_power: string;
-    /** 방어력 */
-    armor: string;
-    /** 이동속도 */
-    speed: string;
-    /** 점프력 */
-    jump: string;
-  };
+  item_etc_option: Omit<
+    ItemBaseOption,
+    | 'boss_damage'
+    | 'ignore_monster_armor'
+    | 'all_stat'
+    | 'damage'
+    | 'equipment_level_decrease'
+    | 'max_hp_rate'
+    | 'max_mp_rate'
+  >;
   /** 강화 단계 */
   starforce: string;
   /** 놀라운 장비 강화 주문서 사용 여부 (0:미사용, 1:사용) */
   starforce_scroll_flag: string;
   /** 장비 스타포스 옵션 정보 */
-  item_starforce_option: {
-    /** STR */
-    str: string;
-    /** DEX */
-    dex: string;
-    /** INT */
-    int: string;
-    /** LUK */
-    luk: string;
-    /** 최대 HP */
-    max_hp: string;
-    /** 최대 MP */
-    max_mp: string;
-    /** 공격력 */
-    attack_power: string;
-    /** 마력 */
-    magic_power: string;
-    /** 방어력 */
-    armor: string;
-    /** 이동속도 */
-    speed: string;
-    /** 점프력 */
-    jump: string;
-  };
+  item_starforce_option: Omit<
+    ItemBaseOption,
+    | 'boss_damage'
+    | 'ignore_monster_armor'
+    | 'all_stat'
+    | 'damage'
+    | 'equipment_level_decrease'
+    | 'max_hp_rate'
+    | 'max_mp_rate'
+  >;
   /** 특수 반지 레벨 int64 */
   special_ring_level: number;
   /** 장비 유효 기간(KST)
