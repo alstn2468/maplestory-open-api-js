@@ -1,7 +1,7 @@
 {
-  "name": "nexon-open-api-js",
+  "name": "maplestory-open-api-js",
   "version": "1.0.0",
-  "repository": "https://github.com/alstn2468/nexon-open-api-js",
+  "repository": "https://github.com/alstn2468/maplestory-open-api-js",
   "author": "alstn2468 <alstn2468_@naver.com>",
   "license": "MIT",
   "packageManager": "yarn@4.0.2",

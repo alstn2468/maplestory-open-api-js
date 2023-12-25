@@ -1,3 +1,3 @@
-# nexon-open-api-js
+# maplestory-open-api-js
 
-📘 Nexon Open API library for JavaScript, TypeScript
+📘 MapleStory Open API library for JavaScript, TypeScript

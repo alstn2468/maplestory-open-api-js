@@ -14,7 +14,7 @@ export default defineConfig({
     sourcemap: true,
     lib: {
       entry: path.resolve(dirname, 'src/index.ts'),
-      name: 'nexon-open-api-js',
+      name: 'maplestory-open-api-js',
       formats: ['es', 'cjs', 'umd'],
       fileName: (format) => `index.${format}.js`,
     },

@@ -1,3 +1,3 @@
-import { URLS } from '~/maplestory/urls';
+import { URLS } from '~/urls';
 
 export { URLS };
