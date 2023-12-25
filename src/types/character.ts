@@ -478,3 +478,70 @@ export interface CharacterCashItemEquipment extends CharacterBase {
   /** 제로인 경우 베타, 엔젤릭버스터인 경우 드레스 업 모드의 3번 프리셋 장착 캐시 장비 정보 */
   additional_cash_item_equipment_preset_3: Array<CashItemEquipmentPreset>;
 }
+
+export interface CharacterSymbolEquipment extends CharacterBase {
+  /** 캐릭터 직업 */
+  character_class: string;
+  /** 심볼 정보 */
+  symbol: Array<{
+    /** 심볼 명 */
+    symbol_name: string;
+    /** 심볼 아이콘 */
+    symbol_icon: string;
+    /** 심볼 설명 */
+    symbol_description: string;
+    /** 심볼로 인한 증가 수치 */
+    symbol_force: string;
+    /** 심볼 레벨 int64 */
+    symbol_level: number;
+    /** 심볼로 증가한 힘 */
+    symbol_str: string;
+    /** 심볼로 증가한 민첩 */
+    symbol_dex: string;
+    /** 심볼로 증가한 지력 */
+    symbol_int: string;
+    /** 심볼로 증가한 운 */
+    symbol_luk: string;
+    /** 심볼로 증가한 체력 */
+    symbol_hp: string;
+    /** 현재 보유 성장치 int64 */
+    symbol_growth_count: number;
+    /** 성장 시 필요한 성장치 int64 */
+    symbol_require_growth_count: number;
+  }>;
+}
+
+export interface CharacterSetEffect extends CharacterBase {
+  /** 세트 효과 정보 */
+  set_effect: Array<{
+    /** 세트 효과 명 */
+    set_name: string;
+    /** 세트 개수 (럭키 아이템 포함) */
+    total_set_count: number;
+    /** 세트 효과 정보 */
+    set_effect_info: Array<{
+      /** 세트 효과 레벨 (장비 수) */
+      set_count: number;
+      /** 적용 중인 세트 효과 */
+      set_option: string;
+    }>;
+  }>;
+}
+
+export interface CharacterBeautyEquipment extends CharacterBase {}
+
+export interface CharacterAndroidEquipment extends CharacterBase {}
+
+export interface CharacterPetEquipment extends CharacterBase {}
+
+export interface CharacterSkill extends CharacterBase {}
+
+export interface CharacterLinkSkill extends CharacterBase {}
+
+export interface CharacterVMatrix extends CharacterBase {}
+
+export interface CharacterHexaMatrix extends CharacterBase {}
+
+export interface CharacterHexaMatrixStat extends CharacterBase {}
+
+export interface CharacterDojang extends CharacterBase {}
