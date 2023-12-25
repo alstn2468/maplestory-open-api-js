@@ -1,0 +1,35 @@
+{
+  "name": "nexon-open-api-js",
+  "version": "1.0.0",
+  "repository": "https://github.com/alstn2468/nexon-open-api-js",
+  "author": "alstn2468 <alstn2468_@naver.com>",
+  "license": "MIT",
+  "packageManager": "yarn@4.0.2",
+  "main": "dist/index.cjs.js",
+  "module": "dist/index.es.js",
+  "types": "dist/index.d.ts",
+  "scripts": {
+    "dev": "tsc && vite build --watch",
+    "build": "tsc && vite build",
+    "lint": "TIMING=1 eslint \"src/**/*.{ts,tsx}\" --no-error-on-unmatched-pattern",
+    "lint:fix": "TIMING=1 eslint \"src/**/*.{ts,tsx}\" --fix --no-error-on-unmatched-pattern",
+    "format": "prettier --write .",
+    "prepare": "husky install"
+  },
+  "devDependencies": {
+    "@types/eslint": "^8",
+    "@types/node": "^20.10.5",
+    "@typescript-eslint/eslint-plugin": "^6.15.0",
+    "@typescript-eslint/parser": "^6.15.0",
+    "eslint": "^7.32.0 || ^8.2.0",
+    "eslint-config-airbnb-base": "^15.0.0",
+    "eslint-plugin-import": "^2.25.2",
+    "husky": "^8.0.3",
+    "lint-staged": "^15.2.0",
+    "prettier": "^3.1.1",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.3.3",
+    "vite": "^5.0.10",
+    "vite-plugin-dts": "^3.7.0"
+  }
+}
