@@ -1,7 +1,8 @@
 {
   "compilerOptions": {
-    "baseUrl": "./src",
-    "rootDir": "./src",
+    "paths": {
+      "~/*": ["./src/*"]
+    },
     "target": "ESNext",
     "module": "ESNext",
     "moduleResolution": "Node",
@@ -16,12 +17,16 @@
     "resolveJsonModule": true,
     "isolatedModules": true,
     "esModuleInterop": true,
+    "noEmit": true,
     "noUnusedLocals": false,
     "noUnusedParameters": false,
     "noImplicitReturns": false,
     "forceConsistentCasingInFileNames": true
   },
-  "include": ["src"],
+  "include": [
+    "**/*.ts",
+    "**/*.tsx",
+  ],
   "exclude": ["node_modules"],
   "references": [{ "path": "./tsconfig.node.json" }]
 }

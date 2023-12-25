@@ -1,2 +1,3 @@
-type A = 'a';
-export const a: A = 'a';
+import { URLS } from '~/maplestory/urls';
+
+export { URLS };
