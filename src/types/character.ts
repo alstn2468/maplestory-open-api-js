@@ -293,7 +293,7 @@ export interface CharacterItemEquipment extends CharacterBase {
   mechanic_equipment: Array<ItemEquipment>;
 }
 
-export interface CashItemOption {
+export interface ItemOption {
   /** 옵션 타입 */
   option_type: string;
   /** 옵션 값 */
@@ -323,7 +323,7 @@ export interface CashItemEquipmentPreset {
   /** 캐시 장비 설명 */
   cash_item_description: string;
   /** 캐시 장비 옵션 */
-  cash_item_option: Array<CashItemOption>;
+  cash_item_option: Array<ItemOption>;
   /** 캐시 장비 유효 기간 (KST)
    * example: 2023-12-21T17:28+09:00
    * */
@@ -410,15 +410,200 @@ export interface CharacterSetEffect extends CharacterBase {
   }>;
 }
 
-export interface CharacterBeautyEquipment extends CharacterBase {}
+export interface CharacterHair {
+  /** 헤어 명 */
+  hair_name: string;
+  /** 헤어 베이스 컬러 */
+  base_color: string;
+  /** 헤어 믹스 컬러 */
+  mix_color: string;
+  /** 헤어 믹스 컬러의 염색 비율 */
+  mix_rate: string;
+}
 
-export interface CharacterAndroidEquipment extends CharacterBase {}
+export interface CharacterFace {
+  /** 성형 명 */
+  face_name: string;
+  /** 성형 베이스 컬러 */
+  base_color: string;
+  /** 성형 믹스 컬러 */
+  mix_color: string;
+  /** 성형 믹스 컬러의 염색 비율 */
+  mix_rate: string;
+}
 
-export interface CharacterPetEquipment extends CharacterBase {}
+export interface CharacterBeautyEquipment extends CharacterBase {
+  /** 캐릭터 성별 */
+  character_gender: string;
+  /** 캐릭터 직업 */
+  character_class: string;
+  /** 캐릭터 헤어 정보 (제로인 경우 알파, 엔젤릭버스터인 경우 일반 모드) */
+  character_hair: CharacterHair;
+  /** 캐릭터 성형 정보 (제로인 경우 알파, 엔젤릭버스터인 경우 일반 모드) */
+  character_face: CharacterFace;
+  /** 피부 명 (제로인 경우 알파, 엔젤릭버스터인 경우 일반 모드) */
+  character_skin_name: string;
+  /** 제로인 경우 베타, 엔젤릭버스터인 경우 드레스 업 모드에 적용 중인 헤어 정보 */
+  additional_character_hair: CharacterHair;
+  /** 제로인 경우 베타, 엔젤릭버스터인 경우 드레스 업 모드에 적용 중인 성형 정보 */
+  additional_character_face: CharacterFace;
+  /** 제로인 경우 베타, 엔젤릭버스터인 경우 드레스 업 모드에 적용 중인 피부 명 */
+  additional_character_skin_name: string;
+}
 
-export interface CharacterSkill extends CharacterBase {}
+export interface CharacterAndroidEquipment extends CharacterBase {
+  /** 안드로이드 명 */
+  android_name: string;
+  /** 안드로이드 닉네임 */
+  android_nickname: string;
+  /** 안드로이드 아이콘 */
+  android_icon: string;
+  /** 안드로이드 아이템 설명 */
+  android_description: string;
+  /** 안드로이드 헤어 정보 */
+  android_hair: CharacterHair;
+  /** 안드로이드 성형 정보 */
+  android_face: CharacterFace;
+  /** 안드로이드 피부 명 */
+  android_skin_name: string;
+  /** 안드로이드 캐시 아이템 장착 정보 */
+  android_cash_item_equipment: Array<CashItemEquipmentPreset>;
+  /** 안드로이드 이어센서 클립 적용 여부 */
+  android_ear_sensor_clip_flag: string;
+}
 
-export interface CharacterLinkSkill extends CharacterBase {}
+export interface PetEquipment {
+  /** 아이템 명 */
+  item_name: string;
+  /** 아이템 아이콘 */
+  item_icon: string;
+  /** 아이템 설명 */
+  item_description: string;
+  /** 아이템 표기상 옵션 */
+  item_option: Array<ItemOption>;
+  /** 업그레이드 횟수 int64 */
+  scroll_upgrade: number;
+  /** 업그레이드 가능 횟수 int64 */
+  scroll_upgradeable: number;
+}
+
+export interface PetAutoSkill {
+  /** 첫 번째 슬롯에 등록된 자동 스킬 */
+  skill_1: string;
+  /** 첫 번째 슬롯에 등록된 자동 스킬 아이콘 */
+  skill_1_icon: string;
+  /** 두 번째 슬롯에 등록된 자동 스킬 */
+  skill_2: string;
+  /** 두 번째 슬롯에 등록된 자동 스킬 아이콘 */
+  skill_2_icon: string;
+}
+
+export interface CharacterPetEquipment extends CharacterBase {
+  /** 펫1 명 */
+  pet_1_name: string;
+  /** 펫1 닉네임 */
+  pet_1_nickname: string;
+  /** 펫1 아이콘 */
+  pet_1_icon: string;
+  /** 펫1 설명 */
+  pet_1_description: string;
+  /** 펫1 장착 정보 */
+  pet_1_equipment: PetEquipment;
+  /** 펫1 펫 버프 자동스킬 정보 */
+  pet_1_auto_skill: PetAutoSkill;
+  /** 펫1 원더 펫 종류 */
+  pet_1_pet_type: string;
+  /** 펫1 펫 보유 스킬 */
+  pet_1_skill: string;
+  /** 펫1 마법의 시간 (KST, 시간 단위 데이터로 분은 일괄 0으로 표기)
+   * example: 2023-12-21T17:00+09:00
+   * */
+  pet_1_date_expire: string;
+  /** 펫2 명 */
+  pet_2_name: string;
+  /** 펫2 닉네임 */
+  pet_2_nickname: string;
+  /** 펫2 아이콘 */
+  pet_2_icon: string;
+  /** 펫2 설명 */
+  pet_2_description: string;
+  /** 펫2 장착 정보 */
+  pet_2_equipment: PetEquipment;
+  /** 펫2 펫 버프 자동스킬 정보 */
+  pet_2_auto_skill: PetAutoSkill;
+  /** 펫2 원더 펫 종류 */
+  pet_2_pet_type: string;
+  /** 펫2 펫 보유 스킬 */
+  pet_2_skill: string;
+  /** 펫2 마법의 시간 (KST, 시간 단위 데이터로 분은 일괄 0으로 표기)
+   * example: 2023-12-21T17:00+09:00
+   * */
+  pet_2_date_expire: string;
+  /** 펫3 명 */
+  pet_3_name: string;
+  /** 펫3 닉네임 */
+  pet_3_nickname: string;
+  /** 펫3 아이콘 */
+  pet_3_icon: string;
+  /** 펫3 설명 */
+  pet_3_description: string;
+  /** 펫3 장착 정보 */
+  pet_3_equipment: PetEquipment;
+  /** 펫3 펫 버프 자동스킬 정보 */
+  pet_3_auto_skill: PetAutoSkill;
+  /** 펫3 원더 펫 종류 */
+  pet_3_pet_type: string;
+  /** 펫3 펫 보유 스킬 */
+  pet_3_skill: string;
+  /** 펫3 마법의 시간 (KST, 시간 단위 데이터로 분은 일괄 0으로 표기)
+   * example: 2023-12-21T17:00+09:00
+   * */
+  pet_3_date_expire: string;
+}
+
+export interface Skill {
+  /** 스킬 명 */
+  skill_name: string;
+  /** 스킬 설명 */
+  skill_description: string;
+  /** 스킬 레벨 int64 */
+  skill_level: number;
+  /** 스킬 레벨 별 효과 설명 */
+  skill_effect: string;
+  /** 스킬 아이콘 */
+  skill_icon: string;
+}
+
+export interface CharacterSkill extends CharacterBase {
+  /** 캐릭터 직업 */
+  character_class: string;
+  /** 스킬 전직 차수 */
+  character_skill_grade: string;
+  /** 스킬 정보 */
+  character_skill: Array<Skill>;
+}
+
+export interface LinkSkill {
+  /** 스킬 명 */
+  skill_name: string;
+  /** 스킬 설명 */
+  skill_description: string;
+  /** 스킬 레벨 int64 */
+  skill_level: number;
+  /** 스킬 효과 */
+  skill_effect: string;
+  /** 스킬 아이콘 */
+  skill_icon: string;
+}
+
+export interface CharacterLinkSkill extends CharacterBase {
+  /** 캐릭터 직업 */
+  character_class: string;
+  /** 링크 스킬 정보 */
+  character_link_skill: LinkSkill;
+  /** 내 링크 스킬 정보 */
+  character_owned_link_skill: LinkSkill;
+}
 
 export interface CharacterVMatrix extends CharacterBase {}
 
