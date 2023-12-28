@@ -1,6 +1,34 @@
+import {
+  CharacterCashItemEquipment,
+  getCharacterCashItemEquipment,
+  getOCID,
+  setAPIKey,
+} from 'maplestory-open-api-js';
 import Head from 'next/head';
+import Image from 'next/image';
+import { useSearchParams } from 'next/navigation';
+import { useEffect, useState } from 'react';
 
 export default function Home() {
+  const searchParams = useSearchParams();
+  const [value, setValue] = useState<CharacterCashItemEquipment | null>(null);
+  const name = searchParams.get('name') ?? '운소망';
+
+  useEffect(() => {
+    const fetch = async () => {
+      const API_KEY = process.env.NEXT_PUBLIC_API_KEY;
+
+      if (API_KEY) {
+        setAPIKey(API_KEY);
+      }
+
+      const { ocid } = await getOCID(name);
+      const cashItemEquipment = await getCharacterCashItemEquipment({ ocid });
+      setValue(cashItemEquipment);
+    };
+    fetch();
+  }, []);
+
   return (
     <>
       <Head>
@@ -9,6 +37,15 @@ export default function Home() {
         <meta name='viewport' content='width=device-width, initial-scale=1' />
         <link rel='icon' href='/favicon.ico' />
       </Head>
+      {value?.cash_item_equipment_preset_1.map((cashItemEquipmentPreset) => (
+        <Image
+          width={50}
+          height={50}
+          key={cashItemEquipmentPreset.cash_item_name}
+          alt={cashItemEquipmentPreset.cash_item_name}
+          src={cashItemEquipmentPreset.cash_item_icon}
+        />
+      ))}
     </>
   );
 }
