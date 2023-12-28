@@ -1,4 +1,4 @@
-const BASE_URL = `/maplestory/v1`;
+const BASE_URL = 'https://open.api.nexon.com/maplestory/v1';
 const CHARACTER_BASE_URL = `${BASE_URL}/character`;
 
 export const CHARACTER_URLS = {
@@ -42,4 +42,4 @@ export const CHARACTER_URLS = {
   HEXAMATRIX_STAT: `${CHARACTER_BASE_URL}/hexamatrix-stat`,
   /** 무릉도장 최고 기록 정보 조회 */
   DOJANG: `${CHARACTER_BASE_URL}/dojang`,
-};
+} as const;

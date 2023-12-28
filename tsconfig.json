@@ -20,8 +20,7 @@
     "noEmit": true,
     "noUnusedLocals": false,
     "noUnusedParameters": false,
-    "noImplicitReturns": false,
-    "forceConsistentCasingInFileNames": true
+    "noImplicitReturns": false
   },
   "include": ["**/*.ts", "**/*.tsx"],
   "exclude": ["node_modules"],

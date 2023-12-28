@@ -1,23 +1,28 @@
-import ky from 'ky-universal';
-import { Input, Options } from 'ky/distribution/types/options';
+import ky, { Options } from 'ky-universal';
 
 const HEADER_API_KEY = 'x-nxopen-api-key';
 
+let API_KEY: string;
+
 export const instance = ky.create({
+  headers: {
+    'content-type': 'application/json',
+  },
   hooks: {
     beforeRequest: [
       (request) => {
-        if (!request.headers.get(HEADER_API_KEY)) {
-          throw new Error(`[ERROR] setAPIKey를 통해 헤더를 설정해주세요.`);
+        if (!API_KEY) {
+          throw new Error('[ERROR] setAPIKey를 통해 헤더를 설정해주세요.');
         }
+        request.headers.set(HEADER_API_KEY, API_KEY);
       },
     ],
   },
 });
 
-export const get = <T>(url: Input, options?: Options) =>
+export const get = <T>(url: string, options?: Options) =>
   instance.get(url, options).json<T>();
 
 export function setAPIKey(apiKey: string) {
-  instance.extend({ headers: { [HEADER_API_KEY]: apiKey } });
+  API_KEY = apiKey;
 }
