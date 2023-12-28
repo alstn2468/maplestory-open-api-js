@@ -1,6 +1,7 @@
 const BASE_URL = 'https://open.api.nexon.com/maplestory/v1';
 const CHARACTER_BASE_URL = `${BASE_URL}/character`;
 const UNION_BASE_URL = `${BASE_URL}/user`;
+const GUILD_BASE_URL = `${BASE_URL}/guild`;
 
 export const CHARACTER_URLS = {
   /** 캐릭터 식별자(ocid) 조회 */
@@ -50,4 +51,11 @@ export const UNION_URLS = {
   UNION: `${UNION_BASE_URL}/union`,
   /** 유니온 공격대 정보 조회 */
   RAIDER: `${UNION_BASE_URL}/union-raider`,
+} as const;
+
+export const GUILD_URLS = {
+  /** 길드 식별자(oguild_id) 정보를 조회*/
+  OGUILD_ID: `${GUILD_BASE_URL}/id`,
+  /** 기본 정보를 조회 */
+  BASIC: `${GUILD_BASE_URL}/basic`,
 } as const;

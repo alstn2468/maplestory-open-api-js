@@ -1,5 +1,5 @@
 import { get } from './fetcher';
-import { CharacterSkillParamter, QueryParameter } from './types';
+import { CharacterQueryParameter, CharacterSkillParamter } from './types';
 import {
   Character,
   CharacterAbility,
@@ -43,7 +43,7 @@ export function getOCID(character_name: string) {
 export function getCharacterBasic({
   ocid,
   date = getCurrentFormattedDate(),
-}: QueryParameter) {
+}: CharacterQueryParameter) {
   return get<CharacterBasic>(CHARACTER_URLS.BASIC, {
     searchParams: { ocid, date },
   });
@@ -57,7 +57,7 @@ export function getCharacterBasic({
 export function getCharacterPopularity({
   ocid,
   date = getCurrentFormattedDate(),
-}: QueryParameter) {
+}: CharacterQueryParameter) {
   return get<CharacterPopularity>(CHARACTER_URLS.POPULARITY, {
     searchParams: { ocid, date },
   });
@@ -71,7 +71,7 @@ export function getCharacterPopularity({
 export function getCharacterStat({
   ocid,
   date = getCurrentFormattedDate(),
-}: QueryParameter) {
+}: CharacterQueryParameter) {
   return get<CharacterStat>(CHARACTER_URLS.STAT, {
     searchParams: { ocid, date },
   });
@@ -85,7 +85,7 @@ export function getCharacterStat({
 export function getCharacterHyperStat({
   ocid,
   date = getCurrentFormattedDate(),
-}: QueryParameter) {
+}: CharacterQueryParameter) {
   return get<CharacterHyperStat>(CHARACTER_URLS.HYPER_STAT, {
     searchParams: { ocid, date },
   });
@@ -99,7 +99,7 @@ export function getCharacterHyperStat({
 export function getCharacterPropensity({
   ocid,
   date = getCurrentFormattedDate(),
-}: QueryParameter) {
+}: CharacterQueryParameter) {
   return get<CharacterPropensity>(CHARACTER_URLS.PROPENSITY, {
     searchParams: { ocid, date },
   });
@@ -113,7 +113,7 @@ export function getCharacterPropensity({
 export function getCharacterAbility({
   ocid,
   date = getCurrentFormattedDate(),
-}: QueryParameter) {
+}: CharacterQueryParameter) {
   return get<CharacterAbility>(CHARACTER_URLS.ABILITY, {
     searchParams: { ocid, date },
   });
@@ -127,7 +127,7 @@ export function getCharacterAbility({
 export function getCharacterItemEquipment({
   ocid,
   date = getCurrentFormattedDate(),
-}: QueryParameter) {
+}: CharacterQueryParameter) {
   return get<CharacterItemEquipment>(CHARACTER_URLS.ITEM_EQUIPMENT, {
     searchParams: { ocid, date },
   });
@@ -141,7 +141,7 @@ export function getCharacterItemEquipment({
 export function getCharacterCashItemEquipment({
   ocid,
   date = getCurrentFormattedDate(),
-}: QueryParameter) {
+}: CharacterQueryParameter) {
   return get<CharacterCashItemEquipment>(CHARACTER_URLS.CASHITEM_EQUIPMENT, {
     searchParams: { ocid, date },
   });
@@ -155,7 +155,7 @@ export function getCharacterCashItemEquipment({
 export function getCharacterSymbolEquipment({
   ocid,
   date = getCurrentFormattedDate(),
-}: QueryParameter) {
+}: CharacterQueryParameter) {
   return get<CharacterSymbolEquipment>(CHARACTER_URLS.SYMBOL_EQUIPMENT, {
     searchParams: { ocid, date },
   });
@@ -169,7 +169,7 @@ export function getCharacterSymbolEquipment({
 export function getCharacterSetEffect({
   ocid,
   date = getCurrentFormattedDate(),
-}: QueryParameter) {
+}: CharacterQueryParameter) {
   return get<CharacterSetEffect>(CHARACTER_URLS.SET_EFFECT, {
     searchParams: { ocid, date },
   });
@@ -183,7 +183,7 @@ export function getCharacterSetEffect({
 export function getCharacterBeautyEquipment({
   ocid,
   date = getCurrentFormattedDate(),
-}: QueryParameter) {
+}: CharacterQueryParameter) {
   return get<CharacterBeautyEquipment>(CHARACTER_URLS.BEAUTY_EQUIPMENT, {
     searchParams: { ocid, date },
   });
@@ -197,7 +197,7 @@ export function getCharacterBeautyEquipment({
 export function getCharacterAndroidEquipment({
   ocid,
   date = getCurrentFormattedDate(),
-}: QueryParameter) {
+}: CharacterQueryParameter) {
   return get<CharacterAndroidEquipment>(CHARACTER_URLS.ANDROID_EQUIPMENT, {
     searchParams: { ocid, date },
   });
@@ -211,7 +211,7 @@ export function getCharacterAndroidEquipment({
 export function getCharacterPetEquipment({
   ocid,
   date = getCurrentFormattedDate(),
-}: QueryParameter) {
+}: CharacterQueryParameter) {
   return get<CharacterPetEquipment>(CHARACTER_URLS.PET_EQUIPMENT, {
     searchParams: { ocid, date },
   });
@@ -227,7 +227,7 @@ export function getCharacterSkill({
   ocid,
   date = getCurrentFormattedDate(),
   character_skill_grade,
-}: QueryParameter & CharacterSkillParamter) {
+}: CharacterSkillParamter) {
   return get<CharacterSkill>(CHARACTER_URLS.SKILL, {
     searchParams: { ocid, date, character_skill_grade },
   });
@@ -241,7 +241,7 @@ export function getCharacterSkill({
 export function getCharacterLinkSkill({
   ocid,
   date = getCurrentFormattedDate(),
-}: QueryParameter) {
+}: CharacterQueryParameter) {
   return get<CharacterLinkSkill>(CHARACTER_URLS.LINK_SKILL, {
     searchParams: { ocid, date },
   });
@@ -255,7 +255,7 @@ export function getCharacterLinkSkill({
 export function getCharacterVMatrix({
   ocid,
   date = getCurrentFormattedDate(),
-}: QueryParameter) {
+}: CharacterQueryParameter) {
   return get<CharacterVMatrix>(CHARACTER_URLS.VMATRIX, {
     searchParams: { ocid, date },
   });
@@ -269,7 +269,7 @@ export function getCharacterVMatrix({
 export function getCharacterHEXAMatrix({
   ocid,
   date = getCurrentFormattedDate(),
-}: QueryParameter) {
+}: CharacterQueryParameter) {
   return get<CharacterHexaMatrix>(CHARACTER_URLS.HEXAMATRIX, {
     searchParams: { ocid, date },
   });
@@ -283,7 +283,7 @@ export function getCharacterHEXAMatrix({
 export function getCharacterHEXAMatrixStat({
   ocid,
   date = getCurrentFormattedDate(),
-}: QueryParameter) {
+}: CharacterQueryParameter) {
   return get<CharacterHexaMatrixStat>(CHARACTER_URLS.HEXAMATRIX_STAT, {
     searchParams: { ocid, date },
   });
@@ -297,7 +297,7 @@ export function getCharacterHEXAMatrixStat({
 export function getCharacterDojang({
   ocid,
   date = getCurrentFormattedDate(),
-}: QueryParameter) {
+}: CharacterQueryParameter) {
   return get<CharacterDojang>(CHARACTER_URLS.DOJANG, {
     searchParams: { ocid, date },
   });

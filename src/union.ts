@@ -1,5 +1,5 @@
 import { get } from './fetcher';
-import { QueryParameter } from './types';
+import { CharacterQueryParameter } from './types';
 import { Union, UnionRaider } from './types/union';
 import { UNION_URLS } from './urls';
 import { getCurrentFormattedDate } from './utils';
@@ -12,7 +12,7 @@ import { getCurrentFormattedDate } from './utils';
 export function getUnion({
   ocid,
   date = getCurrentFormattedDate(),
-}: QueryParameter) {
+}: CharacterQueryParameter) {
   return get<Union>(UNION_URLS.UNION, {
     searchParams: { ocid, date },
   });
@@ -26,7 +26,7 @@ export function getUnion({
 export function getUnionRaider({
   ocid,
   date = getCurrentFormattedDate(),
-}: QueryParameter) {
+}: CharacterQueryParameter) {
   return get<UnionRaider>(UNION_URLS.RAIDER, {
     searchParams: { ocid, date },
   });
