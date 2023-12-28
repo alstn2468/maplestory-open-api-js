@@ -21,9 +21,9 @@ export interface CharacterBasic extends CharacterBase {
   character_class: string;
   /** 캐릭터 전직 차수 */
   character_class_level: string;
-  /** 캐릭터 레벨 int64 */
+  /** 캐릭터 레벨 */
   character_level: number;
-  /** 현재 레벨에서 보유한 경험치 int64 */
+  /** 현재 레벨에서 보유한 경험치 */
   character_exp: number;
   /** 현재 레벨에서 경험치 퍼센트 */
   character_exp_rate: string;
@@ -34,7 +34,7 @@ export interface CharacterBasic extends CharacterBase {
 }
 
 export interface CharacterPopularity extends CharacterBase {
-  /** 캐릭터 인기도 int64 */
+  /** 캐릭터 인기도 */
   popularity: number;
 }
 
@@ -52,14 +52,14 @@ export interface CharacterStat extends CharacterBase {
      * */
     stat_value: string;
   }>;
-  /** 잔여 AP int64 */
+  /** 잔여 AP */
   remain_ap: number;
 }
 
 export interface HyperStat {
   /** 스탯 종류 */
   stat_type: string;
-  /** 스탯 투자 포인트 int64 */
+  /** 스탯 투자 포인트 */
   stat_point: number;
   /** 스탯 레벨 */
   stat_level: number;
@@ -72,11 +72,11 @@ export interface CharacterHyperStat extends CharacterBase {
   character_class: string;
   /** 적용 중인 프리셋 번호 */
   use_preset_no: string;
-  /** 사용 가능한 최대 하이퍼스탯 포인트 int64 */
+  /** 사용 가능한 최대 하이퍼스탯 포인트 */
   use_available_hyper_stat: number;
   /** 프리셋 1번 하이퍼 스탯 정보 */
   hyper_stat_preset_1: Array<HyperStat>;
-  /** 프리셋 1번 하이퍼 스탯 잔여 포인트 int64 */
+  /** 프리셋 1번 하이퍼 스탯 잔여 포인트 */
   hyper_stat_preset_1_remain_point: number;
   /** 프리셋 2번 하이퍼 스탯 정보 */
   hyper_stat_preset_2: Array<HyperStat>;
@@ -90,17 +90,17 @@ export interface CharacterHyperStat extends CharacterBase {
 }
 
 export interface CharacterPropensity extends CharacterBase {
-  /** 카리스마 레벨 int64 */
+  /** 카리스마 레벨 */
   charisma_level: number;
-  /** 감성 레벨 int64 */
+  /** 감성 레벨 */
   sensibility_level: number;
-  /** 통찰력 레벨 int64 */
+  /** 통찰력 레벨 */
   insight_level: number;
-  /** 의지 레벨 int64 */
+  /** 의지 레벨 */
   willingness_level: number;
-  /** 손재주 레벨 int64 */
+  /** 손재주 레벨 */
   handicraft_level: number;
-  /** 매력 레벨 int64 */
+  /** 매력 레벨 */
   charm_level: number;
 }
 
@@ -116,7 +116,7 @@ export interface CharacterAbility extends CharacterBase {
     /** 어빌리티 옵션 및 수치 */
     ability_value: string;
   }>;
-  /** 보유 명성치 int64 */
+  /** 보유 명성치 */
   remain_fame: number;
 }
 
@@ -151,7 +151,7 @@ export interface ItemBaseOption {
   all_stat: string;
   /** 데미지(%) */
   damage: string;
-  /** 착용 레벨 감소 int64 */
+  /** 착용 레벨 감소 */
   equipment_level_decrease: number;
   /** 최대 HP(%) */
   max_hp_rate: string;
@@ -196,7 +196,7 @@ export interface ItemEquipment {
   additional_potential_option_2: string;
   /** 에디셔널 잠재능력 세 번째 옵션 */
   additional_potential_option_3: string;
-  /** 착용 레벨 증가 int64 */
+  /** 착용 레벨 증가 */
   equipment_level_increase: number;
   /** 장비 특별 옵션 정보 */
   item_exceptional_option: Pick<
@@ -212,9 +212,9 @@ export interface ItemEquipment {
   >;
   /** 장비 추가 옵션 */
   item_add_option: Omit<ItemBaseOption, 'max_hp_rate' | 'max_mp_rate'>;
-  /** 성장 경험치 int64 */
+  /** 성장 경험치 */
   growth_exp: number;
-  /** 성장 레벨 int64 */
+  /** 성장 레벨 */
   growth_level: number;
   /** 업그레이드 횟수 */
   scroll_upgrade: string;
@@ -256,7 +256,7 @@ export interface ItemEquipment {
     | 'max_hp_rate'
     | 'max_mp_rate'
   >;
-  /** 특수 반지 레벨 int64 */
+  /** 특수 반지 레벨 */
   special_ring_level: number;
   /** 장비 유효 기간(KST)
    * example: 2023-12-21T17:28+09:00
@@ -374,7 +374,7 @@ export interface CharacterSymbolEquipment extends CharacterBase {
     symbol_description: string;
     /** 심볼로 인한 증가 수치 */
     symbol_force: string;
-    /** 심볼 레벨 int64 */
+    /** 심볼 레벨 */
     symbol_level: number;
     /** 심볼로 증가한 힘 */
     symbol_str: string;
@@ -386,9 +386,9 @@ export interface CharacterSymbolEquipment extends CharacterBase {
     symbol_luk: string;
     /** 심볼로 증가한 체력 */
     symbol_hp: string;
-    /** 현재 보유 성장치 int64 */
+    /** 현재 보유 성장치 */
     symbol_growth_count: number;
-    /** 성장 시 필요한 성장치 int64 */
+    /** 성장 시 필요한 성장치 */
     symbol_require_growth_count: number;
   }>;
 }
@@ -481,9 +481,9 @@ export interface PetEquipment {
   item_description: string;
   /** 아이템 표기상 옵션 */
   item_option: Array<ItemOption>;
-  /** 업그레이드 횟수 int64 */
+  /** 업그레이드 횟수 */
   scroll_upgrade: number;
-  /** 업그레이드 가능 횟수 int64 */
+  /** 업그레이드 가능 횟수 */
   scroll_upgradeable: number;
 }
 
@@ -566,7 +566,7 @@ export interface Skill {
   skill_name: string;
   /** 스킬 설명 */
   skill_description: string;
-  /** 스킬 레벨 int64 */
+  /** 스킬 레벨 */
   skill_level: number;
   /** 스킬 레벨 별 효과 설명 */
   skill_effect: string;
@@ -588,7 +588,7 @@ export interface LinkSkill {
   skill_name: string;
   /** 스킬 설명 */
   skill_description: string;
-  /** 스킬 레벨 int64 */
+  /** 스킬 레벨 */
   skill_level: number;
   /** 스킬 효과 */
   skill_effect: string;
@@ -612,13 +612,13 @@ export interface CharacterVMatrix extends CharacterBase {
   character_v_core_equipment: Array<{
     /** 슬롯 인덱스 */
     slot_id: string;
-    /** 슬롯 레벨 int64 */
+    /** 슬롯 레벨 */
     slot_level: number;
     /** 코어 명 */
     v_core_name: string;
     /** 코어 타입 */
     v_core_type: string;
-    /** 코어 레벨 int64 */
+    /** 코어 레벨 */
     v_core_level: number;
     /** 코어에 해당하는 스킬 명 */
     v_core_skill_1: string;
@@ -636,7 +636,7 @@ export interface CharacterHexaMatrix extends CharacterBase {
   character_hexa_core_equipment: Array<{
     /** 코어 명 */
     hexa_core_name: string;
-    /** 코어 레벨 int64 */
+    /** 코어 레벨 */
     hexa_core_level: number;
     /** 코어 타입 */
     hexa_core_type: string;
@@ -657,13 +657,13 @@ export interface HexaStatCore {
   sub_stat_name_1: string;
   /** 두 번째 서브 명 */
   sub_stat_name_2: string;
-  /** 메인 스탯 레벨 int64 */
+  /** 메인 스탯 레벨 */
   main_stat_level: number;
-  /** 첫 번째 서브 레벨 int64 */
+  /** 첫 번째 서브 레벨 */
   sub_stat_level_1: number;
-  /** 두 번째 서브 레벨 int64 */
+  /** 두 번째 서브 레벨 */
   sub_stat_level_2: number;
-  /** 스탯 코어 등급 int64 */
+  /** 스탯 코어 등급 */
   stat_grade: number;
 }
 
@@ -681,12 +681,12 @@ export interface CharacterDojang extends CharacterBase {
   character_class: string;
   /** 월드 명 */
   world_name: string;
-  /** 무릉도장 최고 기록 층수 int64 */
+  /** 무릉도장 최고 기록 층수 */
   dojang_best_floor: number;
   /** 무릉도장 최고 기록 달성 일 (KST, 일 단위 데이터로 시, 분은 일괄 0으로 표기)
    * example: 2023-12-21T00:00+09:00
    */
   date_dojang_record: string;
-  /** 무릉도장 최고 층수 클리어에 걸린 시간 (초) int64 */
+  /** 무릉도장 최고 층수 클리어에 걸린 시간 (초) */
   dojang_best_time: number;
 }
