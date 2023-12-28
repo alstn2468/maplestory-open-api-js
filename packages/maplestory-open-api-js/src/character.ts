@@ -29,7 +29,7 @@ import { CHARACTER_URLS } from './urls';
 import { getPreviousFormattedDate } from './utils';
 
 /**
- * @decription 캐릭터 식별자(ocid) 조회
+ * @description 캐릭터 식별자(ocid) 조회
  * @param character_name 캐릭터 명
  */
 export function getOCID(character_name: string) {
