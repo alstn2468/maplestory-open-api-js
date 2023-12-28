@@ -605,10 +605,88 @@ export interface CharacterLinkSkill extends CharacterBase {
   character_owned_link_skill: LinkSkill;
 }
 
-export interface CharacterVMatrix extends CharacterBase {}
+export interface CharacterVMatrix extends CharacterBase {
+  /** 캐릭터 직업 */
+  character_class: string;
+  /** V코어 정보 */
+  character_v_core_equipment: Array<{
+    /** 슬롯 인덱스 */
+    slot_id: string;
+    /** 슬롯 레벨 int64 */
+    slot_level: number;
+    /** 코어 명 */
+    v_core_name: string;
+    /** 코어 타입 */
+    v_core_type: string;
+    /** 코어 레벨 int64 */
+    v_core_level: number;
+    /** 코어에 해당하는 스킬 명 */
+    v_core_skill_1: string;
+    /** (강화 코어인 경우) 코어에 해당하는 세 번째 스킬 명 */
+    v_core_skill_2: string;
+    /** (강화 코어인 경우) 코어에 해당하는 세 번째 스킬 명 */
+    v_core_skill_3: string;
+  }>;
+  /** 캐릭터 잔여 매트릭스 강화 포인트 */
+  character_v_matrix_remain_slot_upgrade_point: number;
+}
 
-export interface CharacterHexaMatrix extends CharacterBase {}
+export interface CharacterHexaMatrix extends CharacterBase {
+  /** HEXA 코어 정보 */
+  character_hexa_core_equipment: Array<{
+    /** 코어 명 */
+    hexa_core_name: string;
+    /** 코어 레벨 int64 */
+    hexa_core_level: number;
+    /** 코어 타입 */
+    hexa_core_type: string;
+    /** 연결된 스킬 */
+    linked_skill: Array<{
+      /** HEXA 스킬 명 */
+      hexa_skill_id: string;
+    }>;
+  }>;
+}
 
-export interface CharacterHexaMatrixStat extends CharacterBase {}
+export interface HexaStatCore {
+  /** 슬롯 인덱스 */
+  slot_id: string;
+  /** 메인 스탯 명 */
+  main_stat_name: string;
+  /** 첫 번째 서브 명 */
+  sub_stat_name_1: string;
+  /** 두 번째 서브 명 */
+  sub_stat_name_2: string;
+  /** 메인 스탯 레벨 int64 */
+  main_stat_level: number;
+  /** 첫 번째 서브 레벨 int64 */
+  sub_stat_level_1: number;
+  /** 두 번째 서브 레벨 int64 */
+  sub_stat_level_2: number;
+  /** 스탯 코어 등급 int64 */
+  stat_grade: number;
+}
 
-export interface CharacterDojang extends CharacterBase {}
+export interface CharacterHexaMatrixStat extends CharacterBase {
+  /** 캐릭터 직업 */
+  character_class: string;
+  /** HEXA 스탯 코어 정보 */
+  character_hexa_stat_core: Array<HexaStatCore>;
+  /** 프리셋 HEXA 스탯 코어 정보 */
+  preset_hexa_stat_core: Array<HexaStatCore>;
+}
+
+export interface CharacterDojang extends CharacterBase {
+  /** 캐릭터 직업 */
+  character_class: string;
+  /** 월드 명 */
+  world_name: string;
+  /** 무릉도장 최고 기록 층수 int64 */
+  dojang_best_floor: number;
+  /** 무릉도장 최고 기록 달성 일 (KST, 일 단위 데이터로 시, 분은 일괄 0으로 표기)
+   * example: 2023-12-21T00:00+09:00
+   */
+  date_dojang_record: string;
+  /** 무릉도장 최고 층수 클리어에 걸린 시간 (초) int64 */
+  dojang_best_time: number;
+}
