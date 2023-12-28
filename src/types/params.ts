@@ -9,7 +9,7 @@ export interface QueryParameter {
   /** 조회 기준일 (KST)
    * Example : 2023-12-21
    * */
-  date: string;
+  date?: string;
 }
 
 /**
