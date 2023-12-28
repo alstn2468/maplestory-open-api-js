@@ -1,5 +1,6 @@
-export interface HeaderParameter {
-  'x-nxopen-api-key': string;
+export interface OCIDParameter {
+  /** 캐릭터 명 */
+  character_name: string;
 }
 
 export interface QueryParameter {

@@ -16,6 +16,10 @@
     "format": "prettier --write .",
     "prepare": "husky install"
   },
+  "dependencies": {
+    "ky": "^1.1.3",
+    "ky-universal": "^0.12.0"
+  },
   "devDependencies": {
     "@types/eslint": "^8",
     "@types/node": "^20.10.5",
