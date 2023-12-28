@@ -1,4 +1,0 @@
-{
-  "**/*.{js,ts,jsx,tsx,md}": ["yarn format"],
-  "**/*.{js,ts,jsx,tsx}": ["yarn lint:fix"]
-}

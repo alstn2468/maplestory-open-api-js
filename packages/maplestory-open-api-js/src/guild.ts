@@ -2,7 +2,7 @@ import { get } from './fetcher';
 import { Guild, GuildBasic } from './types/guild';
 import { GuildQueryParameter, OGuildIDParameter } from './types/params';
 import { GUILD_URLS } from './urls';
-import { getCurrentFormattedDate } from './utils';
+import { getPreviousFormattedDate } from './utils';
 
 /**
  * @description 길드 식별자(oguild_id) 정보를 조회
@@ -25,7 +25,7 @@ export function getOGuildID({ world_name, guild_name }: OGuildIDParameter) {
  */
 export function getGuildBasic({
   oguild_id,
-  date = getCurrentFormattedDate(),
+  date = getPreviousFormattedDate(),
 }: GuildQueryParameter) {
   return get<GuildBasic>(GUILD_URLS.BASIC, {
     searchParams: { oguild_id, date },

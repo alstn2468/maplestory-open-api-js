@@ -1,8 +1,8 @@
 module.exports = {
+  root: true,
   parser: '@typescript-eslint/parser',
   plugins: ['import', 'eslint-plugin-simple-import-sort', 'unused-imports'],
   ignorePatterns: ['.pnp.*', '.yarn/**/*'],
-  root: true,
   env: {
     browser: true,
     es2021: true,

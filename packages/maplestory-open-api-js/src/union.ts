@@ -2,7 +2,7 @@ import { get } from './fetcher';
 import { CharacterQueryParameter } from './types/params';
 import { Union, UnionRaider } from './types/union';
 import { UNION_URLS } from './urls';
-import { getCurrentFormattedDate } from './utils';
+import { getPreviousFormattedDate } from './utils';
 
 /**
  * @description 유니온 레벨 및 유니온 등급 정보를 조회
@@ -11,7 +11,7 @@ import { getCurrentFormattedDate } from './utils';
  */
 export function getUnion({
   ocid,
-  date = getCurrentFormattedDate(),
+  date = getPreviousFormattedDate(),
 }: CharacterQueryParameter) {
   return get<Union>(UNION_URLS.UNION, {
     searchParams: { ocid, date },
@@ -25,7 +25,7 @@ export function getUnion({
  */
 export function getUnionRaider({
   ocid,
-  date = getCurrentFormattedDate(),
+  date = getPreviousFormattedDate(),
 }: CharacterQueryParameter) {
   return get<UnionRaider>(UNION_URLS.RAIDER, {
     searchParams: { ocid, date },
