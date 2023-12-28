@@ -1,9 +1,26 @@
 import { get } from './fetcher';
-import { QueryParameter } from './types';
+import { CharacterSkillParamter, QueryParameter } from './types';
 import {
   Character,
+  CharacterAbility,
+  CharacterAndroidEquipment,
   CharacterBasic,
+  CharacterBeautyEquipment,
+  CharacterCashItemEquipment,
+  CharacterDojang,
+  CharacterHexaMatrix,
+  CharacterHexaMatrixStat,
+  CharacterHyperStat,
+  CharacterItemEquipment,
+  CharacterLinkSkill,
+  CharacterPetEquipment,
   CharacterPopularity,
+  CharacterPropensity,
+  CharacterSetEffect,
+  CharacterSkill,
+  CharacterStat,
+  CharacterSymbolEquipment,
+  CharacterVMatrix,
 } from './types/character';
 import { CHARACTER_URLS } from './urls';
 import { getCurrentFormattedDate } from './utils';
@@ -42,6 +59,246 @@ export function getCharacterPopularity({
   date = getCurrentFormattedDate(),
 }: QueryParameter) {
   return get<CharacterPopularity>(CHARACTER_URLS.POPULARITY, {
+    searchParams: { ocid, date },
+  });
+}
+
+/**
+ * @description 종합 능력치 정보를 조회
+ * @param ocid 캐릭터 식별자
+ * @param date 조회 기준일 (KST, EXAMPLE: 2023-12-21)
+ */
+export function getCharacterStat({
+  ocid,
+  date = getCurrentFormattedDate(),
+}: QueryParameter) {
+  return get<CharacterStat>(CHARACTER_URLS.STAT, {
+    searchParams: { ocid, date },
+  });
+}
+
+/**
+ * @description 하이퍼스탯 정보를 조회
+ * @param ocid 캐릭터 식별자
+ * @param date 조회 기준일 (KST, EXAMPLE: 2023-12-21)
+ */
+export function getCharacterHyperStat({
+  ocid,
+  date = getCurrentFormattedDate(),
+}: QueryParameter) {
+  return get<CharacterHyperStat>(CHARACTER_URLS.HYPER_STAT, {
+    searchParams: { ocid, date },
+  });
+}
+
+/**
+ * @description 성향 정보를 조회
+ * @param ocid 캐릭터 식별자
+ * @param date 조회 기준일 (KST, EXAMPLE: 2023-12-21)
+ */
+export function getCharacterPropensity({
+  ocid,
+  date = getCurrentFormattedDate(),
+}: QueryParameter) {
+  return get<CharacterPropensity>(CHARACTER_URLS.PROPENSITY, {
+    searchParams: { ocid, date },
+  });
+}
+
+/**
+ * @description 어빌리티 정보를 조회
+ * @param ocid 캐릭터 식별자
+ * @param date 조회 기준일 (KST, EXAMPLE: 2023-12-21)
+ */
+export function getCharacterAbility({
+  ocid,
+  date = getCurrentFormattedDate(),
+}: QueryParameter) {
+  return get<CharacterAbility>(CHARACTER_URLS.ABILITY, {
+    searchParams: { ocid, date },
+  });
+}
+
+/**
+ * @description 장착한 장비 중 캐시 장비를 제외한 나머지 장비 정보를 조회
+ * @param ocid 캐릭터 식별자
+ * @param date 조회 기준일 (KST, EXAMPLE: 2023-12-21)
+ */
+export function getCharacterItemEquipment({
+  ocid,
+  date = getCurrentFormattedDate(),
+}: QueryParameter) {
+  return get<CharacterItemEquipment>(CHARACTER_URLS.ITEM_EQUIPMENT, {
+    searchParams: { ocid, date },
+  });
+}
+
+/**
+ * @description 장착한 캐시 장비 정보를 조회
+ * @param ocid 캐릭터 식별자
+ * @param date 조회 기준일 (KST, EXAMPLE: 2023-12-21)
+ */
+export function getCharacterCashItemEquipment({
+  ocid,
+  date = getCurrentFormattedDate(),
+}: QueryParameter) {
+  return get<CharacterCashItemEquipment>(CHARACTER_URLS.CASHITEM_EQUIPMENT, {
+    searchParams: { ocid, date },
+  });
+}
+
+/**
+ * @description 장착한 심볼 정보를 조회
+ * @param ocid 캐릭터 식별자
+ * @param date 조회 기준일 (KST, EXAMPLE: 2023-12-21)
+ */
+export function getCharacterSymbolEquipment({
+  ocid,
+  date = getCurrentFormattedDate(),
+}: QueryParameter) {
+  return get<CharacterSymbolEquipment>(CHARACTER_URLS.SYMBOL_EQUIPMENT, {
+    searchParams: { ocid, date },
+  });
+}
+
+/**
+ * @description 적용받고 있는 세트 효과 정보를 조회
+ * @param ocid 캐릭터 식별자
+ * @param date 조회 기준일 (KST, EXAMPLE: 2023-12-21)
+ */
+export function getCharacterSetEffect({
+  ocid,
+  date = getCurrentFormattedDate(),
+}: QueryParameter) {
+  return get<CharacterSetEffect>(CHARACTER_URLS.SET_EFFECT, {
+    searchParams: { ocid, date },
+  });
+}
+
+/**
+ * @description 장착 중인 헤어, 성형, 피부 정보를 조회
+ * @param ocid 캐릭터 식별자
+ * @param date 조회 기준일 (KST, EXAMPLE: 2023-12-21)
+ */
+export function getCharacterBeautyEquipment({
+  ocid,
+  date = getCurrentFormattedDate(),
+}: QueryParameter) {
+  return get<CharacterBeautyEquipment>(CHARACTER_URLS.BEAUTY_EQUIPMENT, {
+    searchParams: { ocid, date },
+  });
+}
+
+/**
+ * @description 장착한 안드로이드 정보를 조회
+ * @param ocid 캐릭터 식별자
+ * @param date 조회 기준일 (KST, EXAMPLE: 2023-12-21)
+ */
+export function getCharacterAndroidEquipment({
+  ocid,
+  date = getCurrentFormattedDate(),
+}: QueryParameter) {
+  return get<CharacterAndroidEquipment>(CHARACTER_URLS.ANDROID_EQUIPMENT, {
+    searchParams: { ocid, date },
+  });
+}
+
+/**
+ * @description 장착한 펫 및 펫 스킬, 장비 정보를 조회
+ * @param ocid 캐릭터 식별자
+ * @param date 조회 기준일 (KST, EXAMPLE: 2023-12-21)
+ */
+export function getCharacterPetEquipment({
+  ocid,
+  date = getCurrentFormattedDate(),
+}: QueryParameter) {
+  return get<CharacterPetEquipment>(CHARACTER_URLS.PET_EQUIPMENT, {
+    searchParams: { ocid, date },
+  });
+}
+
+/**
+ * @description 캐릭터 스킬과 하이퍼 스킬 정보를 조회
+ * @param ocid 캐릭터 식별자
+ * @param date 조회 기준일 (KST, EXAMPLE: 2023-12-21)
+ * @param character_skill_grade 조회하고자 하는 전직 차수
+ */
+export function getCharacterSkill({
+  ocid,
+  date = getCurrentFormattedDate(),
+  character_skill_grade,
+}: QueryParameter & CharacterSkillParamter) {
+  return get<CharacterSkill>(CHARACTER_URLS.SKILL, {
+    searchParams: { ocid, date, character_skill_grade },
+  });
+}
+
+/**
+ * @description 장착 링크 스킬 정보를 조회
+ * @param ocid 캐릭터 식별자
+ * @param date 조회 기준일 (KST, EXAMPLE: 2023-12-21)
+ */
+export function getCharacterLinkSkill({
+  ocid,
+  date = getCurrentFormattedDate(),
+}: QueryParameter) {
+  return get<CharacterLinkSkill>(CHARACTER_URLS.LINK_SKILL, {
+    searchParams: { ocid, date },
+  });
+}
+
+/**
+ * @description V매트릭스 슬롯 정보와 장착한 V코어 정보를 조회
+ * @param ocid 캐릭터 식별자
+ * @param date 조회 기준일 (KST, EXAMPLE: 2023-12-21)
+ */
+export function getCharacterVMatrix({
+  ocid,
+  date = getCurrentFormattedDate(),
+}: QueryParameter) {
+  return get<CharacterVMatrix>(CHARACTER_URLS.VMATRIX, {
+    searchParams: { ocid, date },
+  });
+}
+
+/**
+ * @description HEXA 매트릭스에 장착한 HEXA 코어 정보를 조회
+ * @param ocid 캐릭터 식별자
+ * @param date 조회 기준일 (KST, EXAMPLE: 2023-12-21)
+ */
+export function getCharacterHEXAMatrix({
+  ocid,
+  date = getCurrentFormattedDate(),
+}: QueryParameter) {
+  return get<CharacterHexaMatrix>(CHARACTER_URLS.HEXAMATRIX, {
+    searchParams: { ocid, date },
+  });
+}
+
+/**
+ * @description HEXA 매트릭스에 설정한 HEXA 스탯 정보를 조회
+ * @param ocid 캐릭터 식별자
+ * @param date 조회 기준일 (KST, EXAMPLE: 2023-12-21)
+ */
+export function getCharacterHEXAMatrixStat({
+  ocid,
+  date = getCurrentFormattedDate(),
+}: QueryParameter) {
+  return get<CharacterHexaMatrixStat>(CHARACTER_URLS.HEXAMATRIX_STAT, {
+    searchParams: { ocid, date },
+  });
+}
+
+/**
+ * @description 캐릭터 무릉도장 최고 기록 정보를 조회
+ * @param ocid 캐릭터 식별자
+ * @param date 조회 기준일 (KST, EXAMPLE: 2023-12-21)
+ */
+export function getCharacterDojang({
+  ocid,
+  date = getCurrentFormattedDate(),
+}: QueryParameter) {
+  return get<CharacterDojang>(CHARACTER_URLS.DOJANG, {
     searchParams: { ocid, date },
   });
 }
