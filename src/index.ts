@@ -1,3 +1,3 @@
-import { URLS } from '~/urls';
+import { CHARACTER_URLS } from '~/urls';
 
-export { URLS };
+export { CHARACTER_URLS };
