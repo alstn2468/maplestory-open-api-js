@@ -1,3 +1,5 @@
+import { Skill } from './common';
+
 interface CharacterBase {
   /** 조회 기준일 (KST, 일 단위 데이터로 시, 분은 일괄 0으로 표기)
    * example: 2023-12-21T00:00+09:00
@@ -559,19 +561,6 @@ export interface CharacterPetEquipment extends CharacterBase {
    * example: 2023-12-21T17:00+09:00
    * */
   pet_3_date_expire: string;
-}
-
-export interface Skill {
-  /** 스킬 명 */
-  skill_name: string;
-  /** 스킬 설명 */
-  skill_description: string;
-  /** 스킬 레벨 */
-  skill_level: number;
-  /** 스킬 레벨 별 효과 설명 */
-  skill_effect: string;
-  /** 스킬 아이콘 */
-  skill_icon: string;
 }
 
 export interface CharacterSkill extends CharacterBase {

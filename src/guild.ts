@@ -1,6 +1,6 @@
 import { get } from './fetcher';
-import { GuildQueryParameter, OGuildIDParameter } from './types';
 import { Guild, GuildBasic } from './types/guild';
+import { GuildQueryParameter, OGuildIDParameter } from './types/params';
 import { GUILD_URLS } from './urls';
 import { getCurrentFormattedDate } from './utils';
 

@@ -1,5 +1,5 @@
 import { get } from './fetcher';
-import { CharacterQueryParameter } from './types';
+import { CharacterQueryParameter } from './types/params';
 import { Union, UnionRaider } from './types/union';
 import { UNION_URLS } from './urls';
 import { getCurrentFormattedDate } from './utils';

@@ -1,5 +1,4 @@
 import { get } from './fetcher';
-import { CharacterQueryParameter, CharacterSkillParamter } from './types';
 import {
   Character,
   CharacterAbility,
@@ -22,6 +21,10 @@ import {
   CharacterSymbolEquipment,
   CharacterVMatrix,
 } from './types/character';
+import {
+  CharacterQueryParameter,
+  CharacterSkillParamter,
+} from './types/params';
 import { CHARACTER_URLS } from './urls';
 import { getCurrentFormattedDate } from './utils';
 

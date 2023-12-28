@@ -1,5 +1,12 @@
 export * from './character';
+export * from './common';
 export { setAPIKey } from './fetcher';
 export * from './guild';
-export * from './types';
+export * from './history';
+export * from './types/character';
+export * from './types/common';
+export * from './types/error';
+export * from './types/guild';
+export * from './types/history';
+export * from './types/union';
 export * from './union';
