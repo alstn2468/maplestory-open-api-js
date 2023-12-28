@@ -1,6 +1,9 @@
 {
   "name": "maplestory-open-api-js",
-  "version": "1.0.0",
+  "repository": "https://github.com/alstn2468/maplestory-open-api-js",
+  "version": "0.0.0",
+  "author": "alstn2468 <alstn2468_@naver.com>",
+  "license": "MIT",
   "workspaces": [
     "example/**",
     "packages/**"
@@ -25,8 +28,6 @@
   "engines": {
     "node": ">=18.16.1"
   },
-  "author": "alstn2468 <alstn2468_@naver.com>",
-  "license": "MIT",
   "devDependencies": {
     "@types/eslint": "^8",
     "@types/node": "^20.10.5",
