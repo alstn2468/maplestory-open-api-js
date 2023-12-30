@@ -119,12 +119,3 @@ export interface AchievementRanking extends RankingBase {
     trophy_score: string;
   };
 }
-
-export interface ErrorMessage extends RankingBase {
-  error: {
-    /** 에러 명 */
-    name: string;
-    /** 에러 설명 */
-    message: string;
-  };
-}
