@@ -16,27 +16,25 @@ export interface CommonRankingProps {
 }
 
 export interface OverallRanking {
-  ranking: CommonRankingProps &
-    {
-      /** 캐릭터 레벨 */
-      character_level: number;
-      /** 캐릭터 경험치 */
-      character_exp: number;
-      /** 캐릭터 인기도 */
-      character_popularity: number;
-      /** 길드 명 */
-      character_guildname: string;
-    }[];
+  ranking: (CommonRankingProps & {
+    /** 캐릭터 레벨 */
+    character_level: number;
+    /** 캐릭터 경험치 */
+    character_exp: number;
+    /** 캐릭터 인기도 */
+    character_popularity: number;
+    /** 길드 명 */
+    character_guildname: string;
+  })[];
 }
 
 export interface UnionRanking {
-  ranking: CommonRankingProps &
-    {
-      /** 유니온 레벨 */
-      union_level: number;
-      /** 유니온 파워 */
-      union_power: number;
-    }[];
+  ranking: (CommonRankingProps & {
+    /** 유니온 레벨 */
+    union_level: number;
+    /** 유니온 파워 */
+    union_power: number;
+  })[];
 }
 
 export interface GuildRanking {
@@ -60,35 +58,32 @@ export interface GuildRanking {
 }
 
 export interface DojangRanking {
-  ranking: CommonRankingProps &
-    {
-      /** 캐릭터 레벨 */
-      character_level: number;
-      /** 무릉도장 구간 */
-      dojang_floor: number;
-      /** 무릉도장 클리어 시간 기록 (초 단위) */
-      dojang_time_record: number;
-    }[];
+  ranking: (CommonRankingProps & {
+    /** 캐릭터 레벨 */
+    character_level: number;
+    /** 무릉도장 구간 */
+    dojang_floor: number;
+    /** 무릉도장 클리어 시간 기록 (초 단위) */
+    dojang_time_record: number;
+  })[];
 }
 
 export interface TheSeedRanking {
-  ranking: CommonRankingProps &
-    {
-      /** 캐릭터 레벨 */
-      character_level: number;
-      /** 더 시드 도달 층 */
-      theseed_floor: number;
-      /** 더 시드 클리어 시간 기록 (초 단위) */
-      theseed_time_record: number;
-    }[];
+  ranking: (CommonRankingProps & {
+    /** 캐릭터 레벨 */
+    character_level: number;
+    /** 더 시드 도달 층 */
+    theseed_floor: number;
+    /** 더 시드 클리어 시간 기록 (초 단위) */
+    theseed_time_record: number;
+  })[];
 }
 
 export interface AchievementRanking {
-  ranking: CommonRankingProps &
-    {
-      /** 업적 등급 */
-      trophy_grade: string;
-      /** 업적 점수 */
-      trophy_score: string;
-    }[];
+  ranking: (CommonRankingProps & {
+    /** 업적 등급 */
+    trophy_grade: string;
+    /** 업적 점수 */
+    trophy_score: string;
+  })[];
 }
