@@ -2,7 +2,7 @@ const BASE_URL = 'https://open.api.nexon.com/maplestory/v1';
 const CHARACTER_BASE_URL = `${BASE_URL}/character`;
 const UNION_BASE_URL = `${BASE_URL}/user`;
 const GUILD_BASE_URL = `${BASE_URL}/guild`;
-const HISOTRY_BASE_URL = `${BASE_URL}/history`;
+const HISTORY_BASE_URL = `${BASE_URL}/history`;
 
 /** 계정 식별자(ouid)를 조회 */
 export const OUID_URL = `${BASE_URL}/ouid`;
@@ -66,7 +66,7 @@ export const GUILD_URLS = {
 
 export const GACHA_URLS = {
   /** 스타포스 강화 결과를 조회 */
-  STARFOCE: `${HISOTRY_BASE_URL}/starforce`,
+  STARFOCE: `${HISTORY_BASE_URL}/starforce`,
   /** 큐브 사용 결과를 조회 */
-  CUBE: `${HISOTRY_BASE_URL}/cube`,
+  CUBE: `${HISTORY_BASE_URL}/cube`,
 } as const;
