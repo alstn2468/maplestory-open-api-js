@@ -66,7 +66,7 @@ export const GUILD_URLS = {
 
 export const GACHA_URLS = {
   /** 스타포스 강화 결과를 조회 */
-  STARFOCE: `${HISTORY_BASE_URL}/starforce`,
+  STARFORCE: `${HISTORY_BASE_URL}/starforce`,
   /** 큐브 사용 결과를 조회 */
   CUBE: `${HISTORY_BASE_URL}/cube`,
 } as const;

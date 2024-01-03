@@ -14,7 +14,7 @@ export function getStarforceHistory({
   cursor,
   date,
 }: GachaQueryParameter) {
-  return get<StarforceHistory>(GACHA_URLS.STARFOCE, {
+  return get<StarforceHistory>(GACHA_URLS.STARFORCE, {
     searchParams: date ? { count, date } : { count, cursor },
   });
 }
