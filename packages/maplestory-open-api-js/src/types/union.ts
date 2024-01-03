@@ -1,18 +1,18 @@
-interface UnionrBase {
+interface UnionBase {
   /** 조회 기준일 (KST, 일 단위 데이터로 시, 분은 일괄 0으로 표기)
    * example: 2023-12-21T00:00+09:00
    * */
   date: string;
 }
 
-export interface Union extends UnionrBase {
+export interface Union extends UnionBase {
   /** 유니온 레벨 */
   union_level: number;
   /** 유니온 등급 */
   union_grade: string;
 }
 
-export interface UnionRaider extends UnionrBase {
+export interface UnionRaider extends UnionBase {
   /** 유니온 공격대원 효과 */
   union_raider_stat: Array<string>;
   /** 유니온 공격대 점령 효과 */
