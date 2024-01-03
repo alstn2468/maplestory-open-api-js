@@ -41,9 +41,10 @@ jobs:
       - name: create and publish versions
         uses: changesets/action@v1
         with:
+          createGithubReleases: false
+          publish: pnpm ci:publish
           version: pnpm ci:version
           commit: '✈️ Publish maplestory-open-api-js'
           title: '✈️ Publish maplestory-open-api-js'
-          publish: pnpm ci:publish
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
