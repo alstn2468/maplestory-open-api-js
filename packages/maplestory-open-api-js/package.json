@@ -1,12 +1,15 @@
 {
   "name": "maplestory-open-api-js",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "repository": "https://github.com/alstn2468/maplestory-open-api-js",
   "author": "alstn2468 <alstn2468_@naver.com>",
   "license": "MIT",
   "main": "dist/index.cjs.js",
   "module": "dist/index.es.js",
   "types": "dist/index.d.ts",
+  "publishConfig": {
+    "access": "public"
+  },
   "scripts": {
     "dev": "tsc && vite build --watch",
     "build": "tsc && vite build"
