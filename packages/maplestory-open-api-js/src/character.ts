@@ -23,7 +23,7 @@ import {
 } from './types/character';
 import {
   CharacterQueryParameter,
-  CharacterSkillParamter,
+  CharacterSkillParameter,
 } from './types/params';
 import { CHARACTER_URLS } from './urls';
 import { getPreviousFormattedDate } from './utils';
@@ -230,7 +230,7 @@ export function getCharacterSkill({
   ocid,
   date = getPreviousFormattedDate(),
   character_skill_grade,
-}: CharacterSkillParamter) {
+}: CharacterSkillParameter) {
   return get<CharacterSkill>(CHARACTER_URLS.SKILL, {
     searchParams: { ocid, date, character_skill_grade },
   });

@@ -38,7 +38,7 @@ type CharacterSkillGrade =
   | '5'
   | '6';
 
-export interface CharacterSkillParamter extends CharacterQueryParameter {
+export interface CharacterSkillParameter extends CharacterQueryParameter {
   character_skill_grade: CharacterSkillGrade;
 }
 
