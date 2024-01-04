@@ -77,7 +77,7 @@ export interface GuildQueryParameter {
   date?: string;
 }
 
-export type GachaQueryParameter = {
+export interface GachaQueryParameter {
   /** 한번에 가져오려는 결과의 갯수(최소 10, 최대 1000) */
   count: number;
   /** 페이징 처리를 위한 cursor (date가 없는 경우 필수이며 date와 함께 사용 불가) */
@@ -86,7 +86,7 @@ export type GachaQueryParameter = {
    * Example : 2023-12-21
    * */
   date?: string;
-};
+}
 
 interface RankingQueryParameter {
   /** 페이지 번호 */
