@@ -3,6 +3,7 @@ const CHARACTER_BASE_URL = `${BASE_URL}/character`;
 const UNION_BASE_URL = `${BASE_URL}/user`;
 const GUILD_BASE_URL = `${BASE_URL}/guild`;
 const HISTORY_BASE_URL = `${BASE_URL}/history`;
+const RANKING_BASE_URL = `${BASE_URL}/ranking`;
 
 /** 계정 식별자(ouid)를 조회 */
 export const OUID_URL = `${BASE_URL}/ouid`;
@@ -69,4 +70,19 @@ export const GACHA_URLS = {
   STARFORCE: `${HISTORY_BASE_URL}/starforce`,
   /** 큐브 사용 결과를 조회 */
   CUBE: `${HISTORY_BASE_URL}/cube`,
+} as const;
+
+export const RANKING_URLS = {
+  /** 종합 랭킹 정보를 조회 */
+  OVERALL: `${RANKING_BASE_URL}/overall`,
+  /** 유니온 랭킹 정보를 조회 */
+  UNION: `${RANKING_BASE_URL}/union`,
+  /** 길드 랭킹 정보를 조회 */
+  GUILD: `${RANKING_BASE_URL}/guild`,
+  /** 무릉도장 랭킹 정보를 조회 */
+  DOJANG: `${RANKING_BASE_URL}/dojang`,
+  /** 더 시드 랭킹 정보를 조회 */
+  THESEED: `${RANKING_BASE_URL}/theseed`,
+  /** 업적 랭킹 정보를 조회 */
+  ACHIEVEMENT: `${RANKING_BASE_URL}/achievement`,
 } as const;
