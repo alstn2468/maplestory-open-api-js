@@ -42,12 +42,7 @@ export function getOverallRanking({
     world_type?: number;
     page?: number;
     date?: string;
-  } = { date, world_type };
-
-  if (ocid) searchParams.ocid = ocid;
-  if (character_class) searchParams.character_class = character_class;
-  if (world_name) searchParams.world_name = world_name;
-  if (page) searchParams.page = page;
+  } = { ocid, character_class, world_name, page, world_type, date };
 
   return get<OverallRanking>(RANKING_URLS.OVERALL, {
     searchParams,
@@ -72,11 +67,7 @@ export function getUnionRanking({
     world_name?: string;
     page?: number;
     date?: string;
-  } = { date };
-
-  if (ocid) searchParams.ocid = ocid;
-  if (world_name) searchParams.world_name = world_name;
-  if (page) searchParams.page = page;
+  } = { ocid, world_name, page, date };
 
   return get<UnionRanking>(RANKING_URLS.UNION, {
     searchParams,
@@ -104,11 +95,7 @@ export function getGuildRanking({
     guild_name?: string;
     page?: number;
     date?: string;
-  } = { ranking_type, date };
-
-  if (world_name) searchParams.world_name = world_name;
-  if (guild_name) searchParams.guild_name = guild_name;
-  if (page) searchParams.page = page;
+  } = { ranking_type, world_name, guild_name, page, date };
 
   return get<GuildRanking>(RANKING_URLS.GUILD, {
     searchParams,
@@ -139,11 +126,7 @@ export function getDojangRanking({
     world_name?: string;
     page?: number;
     date?: string;
-  } = { difficulty, character_class, date };
-
-  if (ocid) searchParams.ocid = ocid;
-  if (world_name) searchParams.world_name = world_name;
-  if (page) searchParams.page = page;
+  } = { difficulty, character_class, ocid, world_name, page, date };
 
   return get<DojangRanking>(RANKING_URLS.DOJANG, {
     searchParams,
@@ -168,11 +151,7 @@ export function getTheSeedRanking({
     world_name?: string;
     page?: number;
     date?: string;
-  } = { date };
-
-  if (ocid) searchParams.ocid = ocid;
-  if (world_name) searchParams.world_name = world_name;
-  if (page) searchParams.page = page;
+  } = { ocid, world_name, page, date };
 
   return get<TheSeedRanking>(RANKING_URLS.THESEED, {
     searchParams,
@@ -194,10 +173,7 @@ export function getAchievementRanking({
     ocid?: string;
     page?: number;
     date?: string;
-  } = { date };
-
-  if (ocid) searchParams.ocid = ocid;
-  if (page) searchParams.page = page;
+  } = { ocid, page, date };
 
   return get<AchievementRanking>(RANKING_URLS.ACHIEVEMENT, {
     searchParams,
