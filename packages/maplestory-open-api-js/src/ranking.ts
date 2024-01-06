@@ -35,14 +35,14 @@ export function getOverallRanking({
   page,
   date = getPreviousFormattedDate(),
 }: OverallRankingQueryParameter = {}) {
-  const searchParams: {
-    ocid?: string;
-    character_class?: string;
-    world_name?: string;
-    world_type?: number;
-    page?: number;
-    date?: string;
-  } = { ocid, character_class, world_name, page, world_type, date };
+  const searchParams: OverallRankingQueryParameter = {
+    ocid,
+    character_class,
+    world_name,
+    page,
+    world_type,
+    date,
+  };
 
   return get<OverallRanking>(RANKING_URLS.OVERALL, {
     searchParams,
@@ -62,12 +62,12 @@ export function getUnionRanking({
   page,
   date = getPreviousFormattedDate(),
 }: UnionRankingQueryParameter = {}) {
-  const searchParams: {
-    ocid?: string;
-    world_name?: string;
-    page?: number;
-    date?: string;
-  } = { ocid, world_name, page, date };
+  const searchParams: UnionRankingQueryParameter = {
+    ocid,
+    world_name,
+    page,
+    date,
+  };
 
   return get<UnionRanking>(RANKING_URLS.UNION, {
     searchParams,
@@ -89,13 +89,13 @@ export function getGuildRanking({
   page,
   date = getPreviousFormattedDate(),
 }: GuildRankingQueryParameter) {
-  const searchParams: {
-    ranking_type: number;
-    world_name?: string;
-    guild_name?: string;
-    page?: number;
-    date?: string;
-  } = { ranking_type, world_name, guild_name, page, date };
+  const searchParams: GuildRankingQueryParameter = {
+    ranking_type,
+    world_name,
+    guild_name,
+    page,
+    date,
+  };
 
   return get<GuildRanking>(RANKING_URLS.GUILD, {
     searchParams,
@@ -119,14 +119,14 @@ export function getDojangRanking({
   page,
   date = getPreviousFormattedDate(),
 }: DojangRankingQueryParameter) {
-  const searchParams: {
-    difficulty: number;
-    character_class?: string;
-    ocid?: string;
-    world_name?: string;
-    page?: number;
-    date?: string;
-  } = { difficulty, character_class, ocid, world_name, page, date };
+  const searchParams: DojangRankingQueryParameter = {
+    difficulty,
+    character_class,
+    ocid,
+    world_name,
+    page,
+    date,
+  };
 
   return get<DojangRanking>(RANKING_URLS.DOJANG, {
     searchParams,
@@ -146,12 +146,12 @@ export function getTheSeedRanking({
   page,
   date = getPreviousFormattedDate(),
 }: TheSeedRankingQueryParameter = {}) {
-  const searchParams: {
-    ocid?: string;
-    world_name?: string;
-    page?: number;
-    date?: string;
-  } = { ocid, world_name, page, date };
+  const searchParams: TheSeedRankingQueryParameter = {
+    ocid,
+    world_name,
+    page,
+    date,
+  };
 
   return get<TheSeedRanking>(RANKING_URLS.THESEED, {
     searchParams,
@@ -169,11 +169,7 @@ export function getAchievementRanking({
   page,
   date = getPreviousFormattedDate(),
 }: AchievementRankingQueryParameter = {}) {
-  const searchParams: {
-    ocid?: string;
-    page?: number;
-    date?: string;
-  } = { ocid, page, date };
+  const searchParams: AchievementRankingQueryParameter = { ocid, page, date };
 
   return get<AchievementRanking>(RANKING_URLS.ACHIEVEMENT, {
     searchParams,
