@@ -88,7 +88,11 @@ export interface GachaQueryParameter {
   date?: string;
 }
 
-interface RankingQueryParameter {
+interface RankingQueryParameterBase {
+  [key: string]: string | number | undefined;
+}
+
+interface RankingQueryParameter extends RankingQueryParameterBase {
   /** 페이지 번호 */
   page?: number;
   /** 조회 기준일 (KST)
