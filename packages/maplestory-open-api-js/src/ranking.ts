@@ -16,7 +16,7 @@ import {
   UnionRanking,
 } from './types/ranking';
 import { RANKING_URLS } from './urls';
-import { getPreviousFormattedDate } from './utils';
+import { excludeUndefinedFields, getPreviousFormattedDate } from './utils';
 
 /**
  * @description 종합 랭킹 정보를 조회
@@ -35,17 +35,15 @@ export function getOverallRanking({
   page,
   date = getPreviousFormattedDate(),
 }: OverallRankingQueryParameter = {}) {
-  const searchParams: OverallRankingQueryParameter = {
-    ocid,
-    character_class,
-    world_name,
-    page,
-    world_type,
-    date,
-  };
-
   return get<OverallRanking>(RANKING_URLS.OVERALL, {
-    searchParams,
+    searchParams: excludeUndefinedFields<OverallRankingQueryParameter>({
+      ocid,
+      character_class,
+      world_name,
+      world_type,
+      page,
+      date,
+    }),
   });
 }
 
@@ -62,15 +60,13 @@ export function getUnionRanking({
   page,
   date = getPreviousFormattedDate(),
 }: UnionRankingQueryParameter = {}) {
-  const searchParams: UnionRankingQueryParameter = {
-    ocid,
-    world_name,
-    page,
-    date,
-  };
-
   return get<UnionRanking>(RANKING_URLS.UNION, {
-    searchParams,
+    searchParams: excludeUndefinedFields<UnionRankingQueryParameter>({
+      ocid,
+      world_name,
+      page,
+      date,
+    }),
   });
 }
 
@@ -89,16 +85,14 @@ export function getGuildRanking({
   page,
   date = getPreviousFormattedDate(),
 }: GuildRankingQueryParameter) {
-  const searchParams: GuildRankingQueryParameter = {
-    ranking_type,
-    world_name,
-    guild_name,
-    page,
-    date,
-  };
-
   return get<GuildRanking>(RANKING_URLS.GUILD, {
-    searchParams,
+    searchParams: excludeUndefinedFields<GuildRankingQueryParameter>({
+      ranking_type,
+      world_name,
+      guild_name,
+      page,
+      date,
+    }),
   });
 }
 
@@ -119,17 +113,15 @@ export function getDojangRanking({
   page,
   date = getPreviousFormattedDate(),
 }: DojangRankingQueryParameter) {
-  const searchParams: DojangRankingQueryParameter = {
-    difficulty,
-    character_class,
-    ocid,
-    world_name,
-    page,
-    date,
-  };
-
   return get<DojangRanking>(RANKING_URLS.DOJANG, {
-    searchParams,
+    searchParams: excludeUndefinedFields<DojangRankingQueryParameter>({
+      difficulty,
+      character_class,
+      ocid,
+      world_name,
+      page,
+      date,
+    }),
   });
 }
 
@@ -146,15 +138,13 @@ export function getTheSeedRanking({
   page,
   date = getPreviousFormattedDate(),
 }: TheSeedRankingQueryParameter = {}) {
-  const searchParams: TheSeedRankingQueryParameter = {
-    ocid,
-    world_name,
-    page,
-    date,
-  };
-
   return get<TheSeedRanking>(RANKING_URLS.THESEED, {
-    searchParams,
+    searchParams: excludeUndefinedFields<TheSeedRankingQueryParameter>({
+      ocid,
+      world_name,
+      page,
+      date,
+    }),
   });
 }
 
@@ -169,9 +159,11 @@ export function getAchievementRanking({
   page,
   date = getPreviousFormattedDate(),
 }: AchievementRankingQueryParameter = {}) {
-  const searchParams: AchievementRankingQueryParameter = { ocid, page, date };
-
   return get<AchievementRanking>(RANKING_URLS.ACHIEVEMENT, {
-    searchParams,
+    searchParams: excludeUndefinedFields<AchievementRankingQueryParameter>({
+      ocid,
+      page,
+      date,
+    }),
   });
 }
