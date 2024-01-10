@@ -84,12 +84,19 @@ const cashItemEquipment = await getCharacterCashItemEquipment({ ocid });
 - 스타포스 강화 결과 - `getStarforceHistory`
 - 큐브 사용 결과 - `getCubeHistory`
 
-### 랭킹 정보 조회 TBD
+### 랭킹 정보 조회
+
+- 종합 랭킹 정보 - `getOverallRanking`
+- 유니온 랭킹 정보 - `getUnionRanking`
+- 길드 랭킹 정보 - `getGuildRanking`
+- 무릉도장 랭킹 정보 - `getDojangRanking`
+- 더 시드 랭킹 정보 - `getTheSeedRanking`
+- 업적 랭킹 정보 - `getAchievementRanking`
 
 <div align='center'>
   <sub>
     <sup>
-      LAST UPDATED AT 2023.12.28
+      LAST UPDATED AT 2024.01.10
     </sup>
   </sub>
 </div>
