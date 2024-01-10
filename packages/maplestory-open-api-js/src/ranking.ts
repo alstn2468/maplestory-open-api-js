@@ -48,7 +48,7 @@ export function getOverallRanking({
 }
 
 /**
- * @description 종합 랭킹 정보를 조회
+ * @description 유니온 랭킹 정보를 조회
  * @param ocid 캐릭터 식별자
  * @param world_name 월드 명
  * @param page 페이지 번호
@@ -71,7 +71,7 @@ export function getUnionRanking({
 }
 
 /**
- * @description 종합 랭킹 정보를 조회
+ * @description 길드 랭킹 정보를 조회
  * @param ranking_type 랭킹 타입 (0:주간 명성치, 1:플래그 레이스, 2:지하 수로)
  * @param world_name 월드 명
  * @param guild_name 길드 명
@@ -97,7 +97,7 @@ export function getGuildRanking({
 }
 
 /**
- * @description 종합 랭킹 정보를 조회
+ * @description 무릉도장 랭킹 정보를 조회
  * @param difficulty 구간 (0:일반, 1:통달)
  * @param ocid 캐릭터 식별자
  * @param world_name 월드 명
@@ -126,7 +126,7 @@ export function getDojangRanking({
 }
 
 /**
- * @description 종합 랭킹 정보를 조회
+ * @description 더 시드 랭킹 정보를 조회
  * @param ocid 캐릭터 식별자
  * @param world_name 월드 명
  * @param page 페이지 번호
@@ -149,7 +149,7 @@ export function getTheSeedRanking({
 }
 
 /**
- * @description 종합 랭킹 정보를 조회
+ * @description 업적 랭킹 정보를 조회
  * @param ocid 캐릭터 식별자
  * @param page 페이지 번호
  * @param date 조회 기준일 (KST, EXAMPLE: 2023-12-21)
